@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Flask</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="container mt-5">
+    <h1 class="text-center">Selamat Datang di Aplikasi Flask!</h1>
+    
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Pesan</label>
+            <textarea class="form-control" id="message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-primary">
+    Kirim <i class="bi bi-send"></i>
+</button>
+
+
+    {% if name and message %}
+    <div class="mt-4">
+        <h3>Data yang Dikirim:</h3>
+        <p><strong>Nama:</strong> {{ name }}</p>
+        <p><strong>Pesan:</strong> {{ message }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
